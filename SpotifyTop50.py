@@ -114,7 +114,9 @@ DATA_SELECT = {
 
 MODELS = {
     "Linear Regression": LinearRegression,
-    "Logistic Regression": LogisticRegression 
+    "Logistic Regression": LogisticRegression ,
+    "K-Nearest Neighbors (KNN)": KNeighborsClassifier,
+    "Random Forest": RandomForestRegressor
 }
 target_variable = {
     "Spotify Top 50 🎼": "Popularity"
