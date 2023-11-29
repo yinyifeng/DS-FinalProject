@@ -109,7 +109,9 @@ def get_dataset(select_dataset):
 
 DATA_SELECT = {
     "Linear Regression": ["Spotify Top 50 🎼"],
-    "Logistic Regression": ["Spotify Top 50 🎼"]
+    "Logistic Regression": ["Spotify Top 50 🎼"],
+    "K-Nearest Neighbors (KNN)": ["Spotify Top 50 🎼"],
+    "Random Forest": ["Spotify Top 50 🎼"]
 }
 
 MODELS = {
