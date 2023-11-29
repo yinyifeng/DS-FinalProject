@@ -141,8 +141,8 @@ if app_mode == 'Introduction 🏃':
         st.title("Random Forest Lab 🧪")
     
 
-    select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
-    select_dataset, df = get_dataset(select_data)
+    # select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
+    # select_dataset, df = get_dataset(select_data)
 
     st.markdown("### 00 - Show  Dataset")
     # Spotify top 50 dataset
