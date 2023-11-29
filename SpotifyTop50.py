@@ -517,9 +517,10 @@ if app_mode == 'Prediction 🌠':
 
     elif model_mode == 'K-Nearest Neighbors (KNN)':
         st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         code = '''scaler = StandardScaler()'''
-        code1 = '''scaler.fit(df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1))'''
-        code2 = '''scaled_features = scaler.transform(df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1))'''
+        code1 = '''scaler.fit(df)'''
+        code2 = '''scaled_features = scaler.transform(df)'''
         code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
         code4 = '''knn = KNeighborsClassifier(n_neighbors=1)'''
         code5 = '''knn.fit(X_train, y_train)'''
