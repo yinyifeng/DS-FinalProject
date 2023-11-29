@@ -695,13 +695,13 @@ if app_mode == 'Prediction 🌠':
         recall_score = recall_score(y_test, predictions, average='weighted')
         st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
     elif model_mode == 'K-Nearest Neighbors (KNN)':
-        # mae = metrics.mean_absolute_error(y_test, predictions)
-        # mse = metrics.mean_squared_error(y_test, predictions)
-        # rmse = np.sqrt(metrics.mean_squared_error(y_test, predictions))
+        mae = metrics.mean_absolute_error(y_test, predictions)
+        mse = metrics.mean_squared_error(y_test, predictions)
+        rmse = np.sqrt(metrics.mean_squared_error(y_test, predictions))
         
         st.write("1) The Mean Absolute Error of model is:", np.round(mae,2))
         st.write("2) MSE: ", np.round(mse))
-        st.write("3) The R-Square score of the model is " , np.round(r2))
+        st.write("3) The R-Square score of the model is " , np.round(rmse))
         acc = accuracy_score(y_test, predictions)
         st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
 
