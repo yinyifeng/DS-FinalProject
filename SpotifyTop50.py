@@ -37,6 +37,9 @@ from sklearn import datasets
 from sklearn.decomposition import PCA
 from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.preprocessing import StandardScaler
+from sklearn import metrics
+from sklearn.neighbors import KNeighborsRegressor
+
 
 
 
@@ -523,7 +526,7 @@ if app_mode == 'Prediction 🌠':
             code1 = '''scaler.fit(df)'''
             code2 = '''scaled_features = scaler.transform(df)'''
             code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
-            code4 = '''knn = KNeighborsClassifier(n_neighbors=30)'''
+            code4 = '''knn = KNeighborsRegressor(n_neighbors=30)'''
             code5 = '''knn.fit(X_train, y_train)'''
             code6 = '''predictions = knn.predict(X_test)'''
             st.code(code, language='python')
@@ -692,9 +695,13 @@ if app_mode == 'Prediction 🌠':
         recall_score = recall_score(y_test, predictions, average='weighted')
         st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
     elif model_mode == 'K-Nearest Neighbors (KNN)':
+        mae = metrics.mean_absolute_error(y_test, pred)
+        mse = metrics.mean_squared_error(y_test, pred)
+        rmse = np.sqrt(metrics.mean_squared_error(y_test, pred))
+        
         st.write("1) The Mean Absolute Error of model is:", np.round(mae,2))
         st.write("2) MSE: ", np.round(mse))
-        st.write("3) The R-Square score of the model is " , np.round(r2))
+        st.write("3) The R-Square score of the model is " , np.round(rmse))
         acc = accuracy_score(y_test, predictions)
         st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
 
