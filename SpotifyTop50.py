@@ -33,6 +33,10 @@ from htbuilder import HtmlElement, div, hr, a, p, img, styles
 from htbuilder.units import percent, px
 import pandas_profiling
 
+from sklearn import datasets
+from sklearn.decomposition import PCA
+from sklearn.metrics import classification_report,confusion_matrix
+from sklearn.preprocessing import StandardScaler
 
 
 
@@ -510,6 +514,26 @@ if app_mode == 'Prediction 🌠':
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
+
+    elif model_mode == 'K-Nearest Neighbors (KNN)':
+        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        code = '''scaler = StandardScaler()'''
+        code1 = '''scaler.fit(df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1))'''
+        code2 = '''scaled_features = scaler.transform(df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1))'''
+        code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
+        code4 = '''knn = KNeighborsClassifier(n_neighbors=1)'''
+        code5 = '''knn.fit(X_train, y_train)'''
+        code6 = '''predictions = knn.predict(X_test)'''
+        st.code(code, language='python')
+        st.code(code1, language='python')
+        st.code(code2, language='python')
+        st.code(code3, language='python')
+        st.code(code4, language='python')
+        st.code(code5, language='python')
+        st.code(code6, language='python')
+
+    elif model_mode == 'Random Forest':
+        st.title("Random Forest Lab 🧪")
         
     # converting data
     # if select_dataset == "Student Score 💯":
