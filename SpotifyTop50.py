@@ -132,7 +132,14 @@ if app_mode == 'Introduction 🏃':
 #image_header = Image.open('./images/Logistic-Regression.jpg')
 #st.image(image_header, width=600)
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression Lab 🧪") 
+        st.title("Logistic Regression Lab 🧪")
+
+    elif model_mode == 'K-Nearest Neighbors (KNN)':
+        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+
+    elif model_mode == 'Random Forest':
+        st.title("Random Forest Lab 🧪")
+    
 
     select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
     select_dataset, df = get_dataset(select_data)
