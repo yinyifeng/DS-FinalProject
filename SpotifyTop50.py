@@ -124,7 +124,7 @@ DATA_SELECT = {
 MODELS = {
     "Linear Regression": LinearRegression,
     "Logistic Regression": LogisticRegression ,
-    "K-Nearest Neighbors (KNN)": KNeighborsClassifier,
+    "K-Nearest Neighbors (KNN)": KNeighborsRegressor,
     "Random Forest": RandomForestRegressor
 }
 target_variable = {
