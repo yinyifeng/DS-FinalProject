@@ -91,7 +91,7 @@ st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 
 #get model
-model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression'])
+model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression', 'K-Nearest Neighbors (KNN)', 'Random Forest'])
     
 
 # get pages
