@@ -607,7 +607,7 @@ if app_mode == 'Prediction 🌠':
         # return lm,X_train,y_test,predictions,model
 
         lm = MODELS[model_mode]()
-        if lm == knn:
+        if lm == KNeighborsRegressor:
             scaler = StandardScaler()
             scaler.fit(df)
             scaled_features = scaler.transform(df)
