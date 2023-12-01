@@ -42,8 +42,6 @@ from sklearn.neighbors import KNeighborsRegressor
 
 
 
-
-
 # setting up the page streamlit
 
 st.set_page_config(
@@ -465,7 +463,7 @@ if app_mode == 'Visualization 📊':
     #     height=14, sizes=(20, 200), size_norm=(-.2, .8))
 
 
-    tab4.subheader("pairplot Chart 🗠")
+    tab4.subheader("Pairplot Chart 🗠")
     tab4.write(" ")
     if tab4.button("Show pairplot Chart Code"): 
         code = '''sns.pairplot(df2)'''
@@ -602,8 +600,21 @@ if app_mode == 'Prediction 🌠':
         #X = df[feature_choice].copy()
         #y = df['target'].copy()
         #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=train_size)
-        X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+        # X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+        # lm = MODELS[model_mode]()
+        # model = lm.fit(X_train,y_train)
+        # predictions = lm.predict(X_test)
+        # return lm,X_train,y_test,predictions,model
+
         lm = MODELS[model_mode]()
+        if lm == knn:
+            scaler = StandardScaler()
+            scaler.fit(df)
+            scaled_features = scaler.transform(df)
+            X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)
+        else:
+            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+        
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
         return lm,X_train,y_test,predictions,model
