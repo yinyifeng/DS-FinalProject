@@ -609,15 +609,13 @@ if app_mode == 'Prediction 🌠':
         lm = MODELS[model_mode]()
         if lm == KNeighborsRegressor:
             scaler = StandardScaler()
-            scaler.fit(df)
-            scaled_features = scaler.transform(df)
+            scaled_features = scaler.fit_transform(new_df)
             X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)
-            model = lm.fit(X_train,y_train)
-            predictions = lm.predict(X_test)
         else:
             X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
-            model = lm.fit(X_train,y_train)
-            predictions = lm.predict(X_test)
+
+        model = lm.fit(X_train,y_train)
+        predictions = lm.predict(X_test)
             
         return lm,X_train,y_test,predictions,model
 
