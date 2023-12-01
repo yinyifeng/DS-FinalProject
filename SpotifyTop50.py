@@ -606,17 +606,21 @@ if app_mode == 'Prediction 🌠':
         # predictions = lm.predict(X_test)
         # return lm,X_train,y_test,predictions,model
 
-        lm = KNeighborsRegressor()
+        # lm = MODELS[model_mode]()
+        # if lm == KNeighborsRegressor:
+        #     scaler = StandardScaler()
+        #     scaled_features = scaler.fit_transform(new_df)
+        #     X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)
+        # else:
+        #     X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+
+        lm = MODELS[model_mode]()
         if lm == KNeighborsRegressor:
             scaler = StandardScaler()
-            scaled_features = scaler.fit_transform(new_df)
-            X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)
-        else:
-            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
-
+            x = scaler.fit_transform(new_df2)
+        X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
-            
         return lm,X_train,y_test,predictions,model
 
     # Mlflow tracking
