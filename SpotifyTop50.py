@@ -612,9 +612,8 @@ if app_mode == 'Prediction 🌠':
             scaler.fit(df)
             scaled_features = scaler.transform(df)
             X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)
-            knn = KNeighborsRegressor(n_neighbors=30)
-            model = knn.fit(X_train,y_train)
-            predictions = knn.predict(X_test)
+            model = lm.fit(X_train,y_train)
+            predictions = lm.predict(X_test)
         else:
             X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
             model = lm.fit(X_train,y_train)
