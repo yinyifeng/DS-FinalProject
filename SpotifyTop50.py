@@ -929,7 +929,7 @@ if app_mode == 'Chatbot 🤖':
 if app_mode == "Spotify Wrapped":
     if st.button("Generate Spotify Wrapped"):
         image_wrapped = Image.open('spotifywrapped.png')
-        st.image(image_wrapped, width=1000)
+        st.image(image_wrapped, width=800)
         
 
 
