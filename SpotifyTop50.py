@@ -100,7 +100,7 @@ model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logi
     
 
 # get pages
-app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀','Chatbot 🤖'])
+app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀','Chatbot 🤖', 'Spotify Wrapped'])
 
 #load data
 #@st.cache_resource(experimental_allow_widgets=True)
@@ -727,9 +727,9 @@ if app_mode == 'Prediction 🌠':
         # acc = accuracy_score(y_test, predictions)
         # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
     elif model_mode == "Random Forest":
-        st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
-        st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
-        st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
+        st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
+        st.write("3) MSE: ", np.round(mse))
+        st.write("4) The R-Square score of the model is " , np.round(r2))
 
     @st.cache_resource
     def download_file():
@@ -925,6 +925,13 @@ if app_mode == 'Chatbot 🤖':
                 st.write(
                     f"Model used: {st.session_state['model_name'][i]}; Number of tokens: {st.session_state['total_tokens'][i]}; Cost: ${st.session_state['cost'][i]:.5f}")
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
+
+if app_mode == "Spotify Wrapped":
+    st.button("Generate Spotify Wrapped")
+    if st.button("Generate Report"):
+        image_wrapped = Image.open('spotifywrapped.png')
+        st.image(image_nyu, width=100)
+        
 
 
 if __name__=='__main__':
