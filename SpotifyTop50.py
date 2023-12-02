@@ -930,7 +930,7 @@ if app_mode == "Spotify Wrapped":
     st.button("Generate Spotify Wrapped")
     if st.button("Generate Spotify Wrapped"):
         image_wrapped = Image.open('spotifywrapped.png')
-        st.image(image_nyu, width=100)
+        st.image(image_wrapped, width=100)
         
 
 
