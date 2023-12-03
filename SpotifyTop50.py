@@ -727,7 +727,7 @@ if app_mode == 'Prediction 🌠':
         # acc = accuracy_score(y_test, predictions)
         # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
 
-        acc = accuracy_score(y_test, predictions)
+        acc = KNeighborsRegressor.score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
@@ -740,7 +740,7 @@ if app_mode == 'Prediction 🌠':
         # st.write("3) MSE: ", np.round(mse))
         # st.write("4) The R-Square score of the model is " , np.round(r2))
 
-        acc = accuracy_score(y_test, predictions)
+        acc = RandomForestClassifier.score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
