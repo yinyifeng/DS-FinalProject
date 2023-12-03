@@ -39,6 +39,7 @@ from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from sklearn.neighbors import KNeighborsRegressor
+from streamlit_pandas_profiling import st_profile_report
 
 # setting up the page streamlit
 
