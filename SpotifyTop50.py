@@ -96,7 +96,7 @@ model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logi
     
 
 # get pages
-app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀','Chatbot 🤖', 'Spotify Wrapped'])
+app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀', 'Spotify Wrapped 🚀'])
 
 #load data
 #@st.cache_resource(experimental_allow_widgets=True)
