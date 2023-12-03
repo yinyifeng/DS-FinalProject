@@ -625,7 +625,7 @@ if app_mode == 'Prediction 🌠':
         #     X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
 
         lm = MODELS[model_mode]()
-        if lm == KNeighborsRegressor:
+        if model_mode == 'K-Nearest Neighbors (KNN)':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
