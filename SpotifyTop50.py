@@ -712,7 +712,7 @@ if app_mode == 'Prediction 🌠':
         st.write("3) MSE: ", np.round(mse))
         st.write("4) The R-Square score of the model is " , np.round(r2))
     elif model_mode == 'Logistic Regression':
-        #acc = accuracy_score(y_test, predictions)
+        acc = accuracy_score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
@@ -726,7 +726,8 @@ if app_mode == 'Prediction 🌠':
         # st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
         # acc = accuracy_score(y_test, predictions)
         # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
-        
+
+        acc = accuracy_score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
@@ -738,7 +739,8 @@ if app_mode == 'Prediction 🌠':
         # st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
         # st.write("3) MSE: ", np.round(mse))
         # st.write("4) The R-Square score of the model is " , np.round(r2))
-        
+
+        acc = accuracy_score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
