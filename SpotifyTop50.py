@@ -628,6 +628,8 @@ if app_mode == 'Prediction 🌠':
         if model_mode == 'K-Nearest Neighbors (KNN)':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
+        elif model_mode == 'K-Nearest Neighbors (KNN)':
+            lm = RandomForestRegressor(criterion="entropy", n_estimators=150, max_depth=15)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
