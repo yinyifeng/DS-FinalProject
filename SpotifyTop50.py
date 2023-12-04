@@ -313,12 +313,12 @@ if app_mode == 'Introduction 🏃':
                 div[data-testid="stHorizontalBlock"]:nth-of-type(8),
                 div[data-testid="stHorizontalBlock"]:nth-of-type(9),
                 div[data-testid="stHorizontalBlock"]:nth-of-type(10) {
-                    border: 1px solid #1DB954;
-                    background-color: #191414;
-                    padding: 20px;
-                    border-radius: 10px;
-                    text-align: center;
-                    color: white;
+                    # border: 1px solid #1DB954;
+                    # background-color: #191414;
+                    # padding: 20px;
+                    # border-radius: 10px;
+                    # text-align: center;
+                    # color: white;
                 }
             </style>
             """, unsafe_allow_html=True
