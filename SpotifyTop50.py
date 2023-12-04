@@ -706,12 +706,12 @@ if app_mode == 'Deployment 🚀':
     # Load model as a PyFuncModel.
     loaded_model = mlflow.pyfunc.load_model(logged_model)
 
-    # app_state = st.experimental_get_query_params()  
-    # #saved_target
-    # if "saved_target" in app_state:
-    #     target_choice = app_state["saved_target"][0]
-    # else:
-    #     st.write("target not saved")
+    app_state = st.experimental_get_query_params()  
+    #saved_target
+    if "saved_target" in app_state:
+        target_choice = app_state["saved_target"][0]
+    else:
+        st.write("target not saved")
     
     df = pd.read_csv("music.csv")
     deploy_df= df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'], axis=1)
