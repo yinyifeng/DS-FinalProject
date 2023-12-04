@@ -714,7 +714,7 @@ if app_mode == 'Deployment 🚀':
     #     st.write("target not saved")
     
     df = pd.read_csv("music.csv")
-    deploy_df= df.drop(labels='fixed acidity', axis=1) 
+    #deploy_df= df.drop(labels='fixed acidity', axis=1) 
     list_var = deploy_df.columns
     st.write(target_choice)
     
