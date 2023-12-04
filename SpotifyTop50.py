@@ -296,7 +296,7 @@ if app_mode == 'Introduction 🏃':
         st.markdown(
             """
             <style>
-                div[data-testid="stHorizontalBlock"]:nth-of-type(1) {
+                div[data-testid="stblock"]:nth-of-type(1) {
                     border: 1px solid #1DB954;
                     background-color: #191414;
                     padding: 20px;
@@ -304,15 +304,15 @@ if app_mode == 'Introduction 🏃':
                     text-align: center;
                     color: white;
                 }
-                div[data-testid="stHorizontalBlock"]:nth-of-type(2),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(3),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(4),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(5),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(6),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(7),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(8),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(9),
-                div[data-testid="stHorizontalBlock"]:nth-of-type(10) {
+                div[data-testid="stblock"]:nth-of-type(2),
+                div[data-testid="stblock"]:nth-of-type(3),
+                div[data-testid="stblock"]:nth-of-type(4),
+                div[data-testid="stblock"]:nth-of-type(5),
+                div[data-testid="stblock"]:nth-of-type(6),
+                div[data-testid="stblock"]:nth-of-type(7),
+                div[data-testid="stblock"]:nth-of-type(8),
+                div[data-testid="stblock"]:nth-of-type(9),
+                div[data-testid="stblock"]:nth-of-type(10) {
                     # border: 1px solid #1DB954;
                     # background-color: #191414;
                     # padding: 20px;
