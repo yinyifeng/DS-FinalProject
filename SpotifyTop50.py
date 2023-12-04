@@ -595,7 +595,7 @@ if app_mode == 'Prediction 🌠':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
-            lm = RandomForestRegressor(criterion="entropy", n_estimators=150, max_depth=15)
+            lm = RandomForestRegressor(n_estimators=150, max_depth=15)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
