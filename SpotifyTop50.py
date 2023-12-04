@@ -698,10 +698,10 @@ if app_mode == 'Deployment 🚀':
     select_ds =  "Wine Quality 🍷"
 #    select_dataset, df = get_dataset(select_ds)
 
-    id = st.text_input('ID Model', '00ffae4993044a5d9cb369a46dbc1e01')
+    id = st.text_input('ID Model', '1f0644f9a47044c180624011a28516ca')
         # Print emissions
     #logged_model = f'runs:/{id}/top_model_v1'
-    logged_model = f'./mlruns/0/{id}/artifacts/top_model_v1'
+    logged_model = f'./mlruns/1/{id}/artifacts/top_model_v1'
     
     # Load model as a PyFuncModel.
     loaded_model = mlflow.pyfunc.load_model(logged_model)
