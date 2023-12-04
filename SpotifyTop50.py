@@ -155,55 +155,55 @@ if app_mode == 'Introduction 🏃':
         st.markdown(
             """
             <style>
-                div[data-testid="column"]:nth-of-type(1)
+                div[data-testid="stblock"]:nth-of-type(1)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                     font-family: bariol;
                 } 
 
-                div[data-testid="column"]:nth-of-type(2)
+                div[data-testid="stblock"]:nth-of-type(2)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                    
                 }
-                div[data-testid="column"]:nth-of-type(3)
+                div[data-testid="stblock"]:nth-of-type(3)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 }
-                div[data-testid="column"]:nth-of-type(4)
+                div[data-testid="stblock"]:nth-of-type(4)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(5)
+                div[data-testid="stblock"]:nth-of-type(5)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(6)
+                div[data-testid="stblock"]:nth-of-type(6)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(7)
+                div[data-testid="stblock"]:nth-of-type(7)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(8)
+                div[data-testid="stblock"]:nth-of-type(8)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(9)
+                div[data-testid="stblock"]:nth-of-type(9)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
                 } 
-                div[data-testid="column"]:nth-of-type(10)
+                div[data-testid="stblock"]:nth-of-type(10)
                 {
                     border: 1px solid #1DB954;
                     text-align: center;
