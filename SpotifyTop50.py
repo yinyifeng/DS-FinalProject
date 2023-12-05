@@ -532,16 +532,6 @@ if app_mode == 'Prediction 🌠':
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
-            
-    elif model_mode == 'Logistic Regression':
-        acc = accuracy_score(y_test, predictions)
-        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
-        f1_score = f1_score(y_test, predictions, average='weighted')
-        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
-        precision_score = precision_score(y_test, predictions, average='weighted')
-        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
-        recall_score = recall_score(y_test, predictions, average='weighted')
-        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
         
     elif model_mode == 'K-Nearest Neighbors (KNN)':
         st.title("K-Nearest Neighbors (KNN) Lab 🧪")
