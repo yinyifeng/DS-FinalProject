@@ -251,65 +251,6 @@ if app_mode == 'Introduction 🏃':
         col10.markdown(" **Duration** ")
         col10.markdown("Duration in ms of the song")
         
-        # st.markdown(
-        #     """
-        #     <style>
-        #         div[data-testid="column"]:nth-of-type(1)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #             font-family: bariol;
-        #         } 
-
-        #         div[data-testid="column"]:nth-of-type(2)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-                   
-        #         }
-        #         div[data-testid="column"]:nth-of-type(3)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         }
-        #         div[data-testid="column"]:nth-of-type(4)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(5)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(6)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(7)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(8)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(9)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #         div[data-testid="column"]:nth-of-type(10)
-        #         {
-        #             border:1px solid blue;
-        #             text-align: center;
-        #         } 
-        #     </style>
-        #     """,unsafe_allow_html=True
-        # )
         col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(10)
         col11.markdown(" **Energy** ")
         col11.markdown("Perceptual measure of intensity and activity")
@@ -409,19 +350,8 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     #st.button("Generate Report")
     if st.button("Generate Report"):
-        # pr = df.profile_report()
-        # export=pr.to_html()
         pr = df.profile_report(minimal=True)
         st_profile_report(pr)
-        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
-        # st.markdown(pr.to_html(), unsafe_allow_html=True)
-        # st.write(pr)
-        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
-
-        # output = prof.to_file('output.html', silent=False)
-        
-    
-    
 
 
 # page 2
@@ -607,25 +537,13 @@ if app_mode == 'Prediction 🌠':
         
         lm = MODELS[model_mode]()
         if model_mode == 'K-Nearest Neighbors (KNN)':
-            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
-            predictions = lm.predict(X_test)
-        elif model_mode == 'Logistic Regression':
-            y = df[target_choice] * 100
-            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
-            lr = LogisticRegression(max_iter=200)
-            lr.fit(X_train, y_train)
-            predictions = logistic_regression.score(X_test, y_test)
-            
         elif model_mode == 'Random Forest':
-            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
             lm = RandomForestRegressor(n_estimators=150, max_depth=15)
-            predictions = lm.predict(X_test)
-        else:
-            X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
-            model = lm.fit(X_train,y_train)
-            predictions = lm.predict(X_test)
+        X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
+        model = lm.fit(X_train,y_train)
+        predictions = lm.predict(X_test)
         return lm,X_train,y_test,predictions,model
 
     # Mlflow tracking
