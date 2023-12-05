@@ -454,6 +454,7 @@ if app_mode == 'Prediction 🌠':
         st.title("Logistic Regression Lab 🧪")
         # df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'], axis=1)
+        list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
             code1= '''lm = LogisticRegression()
@@ -540,6 +541,8 @@ if app_mode == 'Prediction 🌠':
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
             lm = RandomForestRegressor(n_estimators=150, max_depth=15)
+        elif model_mode == 'Logistic Regression':
+            y = (df[target_choice] * 100).astype(int)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
@@ -623,8 +626,10 @@ if app_mode == 'Prediction 🌠':
         st.write("3) MSE: ", np.round(mse))
         st.write("4) The R-Square score of the model is " , np.round(r2))
     elif model_mode == 'Logistic Regression':
+        y_test = y_test.values.reshape(1,-1)
+        acc = accuracy_score(y_test, predictions)
         # acc = accuracy_score(y_test, predictions)
-        # st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
+        st.write("1) Model Accuracy (in %):", np.round(acc,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
         precision_score = precision_score(y_test, predictions, average='weighted')
