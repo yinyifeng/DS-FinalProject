@@ -612,7 +612,7 @@ if app_mode == 'Prediction 🌠':
             x = scaler.fit_transform(new_df2)
             predictions = lm.predict(X_test)
         elif model_mode == 'Logistic Regression':
-            y = int(df[target_choice] * 100)
+            y = df[target_choice] * 100
             X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
             lr = LogisticRegression(max_iter=200)
             lr.fit(X_train, y_train)
