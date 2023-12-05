@@ -628,7 +628,7 @@ if app_mode == 'Prediction 🌠':
     elif model_mode == 'Logistic Regression':
         acc = accuracy_score(y_test, predictions)
         # acc = accuracy_score(y_test, predictions)
-        st.write("1) Model Accuracy (in %):", np.round(acc,2))
+        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
         st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
         precision_score = precision_score(y_test, predictions, average='weighted')
