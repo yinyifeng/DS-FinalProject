@@ -16,6 +16,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, MinMaxScaler 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+from streamlit_pandas_profiling import st_profile_report
 
 from sklearn.datasets import load_iris, load_wine, load_diabetes
 from sklearn.model_selection import train_test_split
@@ -39,12 +40,17 @@ from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from sklearn.neighbors import KNeighborsRegressor
-from streamlit_pandas_profiling import st_profile_report
+
+from codecarbon import EmissionsTracker
+
+tracker = EmissionsTracker()
+tracker.start()
+tracker.stop()
 
 # setting up the page streamlit
 
 st.set_page_config(
-    page_title="Linear Regression App ", layout="wide", page_icon="./images/linear-regression.png"
+    page_title="Spotify Top 50 App ", layout="wide", page_icon="./images/linear-regression.png"
 )
 
 
@@ -88,6 +94,8 @@ def main():
 #st.image(image_nyu, width=100)
 
 
+
+
 # navigation dropdown
 st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
@@ -97,7 +105,7 @@ model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logi
     
 
 # get pages
-app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀', 'Spotify Wrapped 🚀'])
+app_mode = st.sidebar.selectbox('📄 Select Page',['Introduction 🏃','Visualization 📊','Prediction 🌠','Deployment 🚀', 'Summary Wrapped 🎁'])
 
 #load data
 #@st.cache_resource(experimental_allow_widgets=True)
@@ -131,18 +139,18 @@ target_variable = {
 # page 1 
 if app_mode == 'Introduction 🏃':
     if model_mode == 'Linear Regression':
-        st.title("Linear Regression Lab 🧪")
+        st.title("Linear Regression 🧪")
 
 #image_header = Image.open('./images/Logistic-Regression.jpg')
 #st.image(image_header, width=600)
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression Lab 🧪")
+        st.title("Logistic Regression 🧪")
 
     elif model_mode == 'K-Nearest Neighbors (KNN)':
-        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        st.title("K-Nearest Neighbors (KNN) 🧪")
 
     elif model_mode == 'Random Forest':
-        st.title("Random Forest Lab 🧪")
+        st.title("Random Forest 🧪")
     
 
     select_data =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
@@ -155,58 +163,68 @@ if app_mode == 'Introduction 🏃':
         st.markdown(
             """
             <style>
-                div[data-testid="stblock"]:nth-of-type(1)
+                div[data-testid="column"]:nth-of-type(1)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
                     font-family: bariol;
+                    background-color: #1db954;
                 } 
 
-                div[data-testid="stblock"]:nth-of-type(2)
+                div[data-testid="column"]:nth-of-type(2)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                    
                 }
-                div[data-testid="stblock"]:nth-of-type(3)
+                div[data-testid="column"]:nth-of-type(3)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 }
-                div[data-testid="stblock"]:nth-of-type(4)
+                div[data-testid="column"]:nth-of-type(4)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(5)
+                div[data-testid="column"]:nth-of-type(5)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(6)
+                div[data-testid="column"]:nth-of-type(6)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(7)
+                div[data-testid="column"]:nth-of-type(7)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(8)
+                div[data-testid="column"]:nth-of-type(8)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(9)
+                div[data-testid="column"]:nth-of-type(9)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
-                div[data-testid="stblock"]:nth-of-type(10)
+                div[data-testid="column"]:nth-of-type(10)
                 {
-                    border: 1px solid #1DB954;
+                    border:1px solid black;
                     text-align: center;
+                    background-color: #1db954;
                 } 
             </style>
             """,unsafe_allow_html=True
@@ -292,38 +310,6 @@ if app_mode == 'Introduction 🏃':
         #     </style>
         #     """,unsafe_allow_html=True
         # )
-
-        st.markdown(
-            """
-            <style>
-                div[data-testid="stblock"]:nth-of-type(1) {
-                    border: 1px solid #1DB954;
-                    background-color: #191414;
-                    padding: 20px;
-                    border-radius: 10px;
-                    text-align: center;
-                    color: white;
-                }
-                div[data-testid="stblock"]:nth-of-type(2),
-                div[data-testid="stblock"]:nth-of-type(3),
-                div[data-testid="stblock"]:nth-of-type(4),
-                div[data-testid="stblock"]:nth-of-type(5),
-                div[data-testid="stblock"]:nth-of-type(6),
-                div[data-testid="stblock"]:nth-of-type(7),
-                div[data-testid="stblock"]:nth-of-type(8),
-                div[data-testid="stblock"]:nth-of-type(9),
-                div[data-testid="stblock"]:nth-of-type(10) {
-                    # border: 1px solid #1DB954;
-                    # background-color: #191414;
-                    # padding: 20px;
-                    # border-radius: 10px;
-                    # text-align: center;
-                    # color: white;
-                }
-            </style>
-            """, unsafe_allow_html=True
-        )
-        
         col11, col12, col13,col14,col15,col16,col17,col18,col19,col20 = st.columns(10)
         col11.markdown(" **Energy** ")
         col11.markdown("Perceptual measure of intensity and activity")
@@ -421,16 +407,29 @@ completeness= round(sum(nonmissing)/len(df),2)
 
     st.markdown("### 04 - Complete Report")
 
+    #st.button("Generate Report")
     if st.button("Generate Report"):
+        # pr = df.profile_report()
+        # export=pr.to_html()
         pr = df.profile_report(minimal=True)
         st_profile_report(pr)
+        # st.download_button(label="Download Full Report", data=export,file_name='report.html')
+        # st.markdown(pr.to_html(), unsafe_allow_html=True)
+        # st.write(pr)
+        # prof = pandas_profiling.ProfileReport(df, explorative=True, minimal=True)
+
+        # output = prof.to_file('output.html', silent=False)
         
+    
     
 
 
 # page 2
 if app_mode == 'Visualization 📊':
     st.markdown("# :violet[Visualization 📊]")
+    #select_dataset =  st.sidebar.selectbox('💾 Select Dataset',DATA_SELECT[model_mode])
+    #select_dataset, df = get_dataset(select_dataset)
+    #df = get_dataset("music.csv")
     df = pd.read_csv("music.csv")
     list_variables = df.columns
 
@@ -438,6 +437,7 @@ if app_mode == 'Visualization 📊':
    
 
     tab1, tab2, tab3, tab4= st.tabs(["Bar Chart 📊","Line Chart 📈","Correlation ⛖","Pairplot"])  
+    #tab1, tab2= st.tabs(["Line Chart","📈 Correlation"])    
     
     #tab1 in visualisation
     tab1.subheader("Bar Chart📊")
@@ -471,7 +471,13 @@ if app_mode == 'Visualization 📊':
     df_numeric = df.select_dtypes(include=['number'])
     sns.heatmap(df_numeric.corr().corr(),cmap= sns.cubehelix_palette(8),annot = True, ax=ax)
     tab3.pyplot(fig3)
-
+    # Compute a correlation matrix and convert to long-form
+    #corr_mat = df.corr().stack().reset_index(name="correlation")
+    # g = sns.relplot(
+    #     data=corr_mat,
+    #     x="level_0", y="level_1", hue="correlation", size="correlation",
+    #     palette="vlag", hue_norm=(-1, 1), edgecolor=".7",
+    #     height=14, sizes=(20, 200), size_norm=(-.2, .8))
 
 
     tab4.subheader("Pairplot Chart 🗠")
@@ -481,7 +487,7 @@ if app_mode == 'Visualization 📊':
         tab4.code(code, language='python')
 
     if tab4.button('show pairplot visualisation'):
-        progress_text = "visualisation in progress🛞!!   :red[Please wait🛑]"
+        progress_text = "Visualisation in Progress🛞!!   :Red[Please Wait🛑]"
         my_bar = st.progress(0, text=progress_text)
         time.sleep(2)
         for percent_complete in range(100):
@@ -526,7 +532,17 @@ if app_mode == 'Prediction 🌠':
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
-
+            
+    elif model_mode == 'Logistic Regression':
+        acc = accuracy_score(y_test, predictions)
+        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
+        f1_score = f1_score(y_test, predictions, average='weighted')
+        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
+        precision_score = precision_score(y_test, predictions, average='weighted')
+        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
+        recall_score = recall_score(y_test, predictions, average='weighted')
+        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
+        
     elif model_mode == 'K-Nearest Neighbors (KNN)':
         st.title("K-Nearest Neighbors (KNN) Lab 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
@@ -551,13 +567,14 @@ if app_mode == 'Prediction 🌠':
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
-            code1 = '''rf = RandomForestClassifier(criterion="entropy", n_estimators=150, max_depth=15)'''
+            code1 = '''rf = RandomForestRegressor(n_estimators=150, max_depth=15)'''
             code2 = '''rf.fit(X_train, y_train)'''
             code3 = '''pred = rf.predict(X_test)'''
             st.code(code, language='python')
             st.code(code1, language='python')
             st.code(code2, language='python')
             st.code(code3, language='python')
+    
 
 
     #choose the dependent variable
@@ -575,6 +592,14 @@ if app_mode == 'Prediction 🌠':
     feature_choice = st.multiselect("Select Explanatory Variables", list_var)
     train_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.70)
     
+#     if st.button("Show ML Code 👀"):
+#         code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+#         code1= '''lm = LinearRegression()
+# lm.fit(X_train,y_train)'''
+#         code2 = '''predictions = lm.predict(X_test)'''
+#         st.code(code, language='python')
+#         st.code(code1, language='python')
+#         st.code(code2, language='python')
     
     @st.cache_resource
     def predict(target_choice, train_size, new_df,feature_choice):
@@ -588,8 +613,7 @@ if app_mode == 'Prediction 🌠':
         col1.write(x.head(25))
         col2.subheader("Target Column top 25")
         col2.write(y.head(25))
-
-
+        
         lm = MODELS[model_mode]()
         if model_mode == 'K-Nearest Neighbors (KNN)':
             scaler = StandardScaler()
@@ -630,13 +654,27 @@ if app_mode == 'Prediction 🌠':
     lm,X_train,y_test,predictions,model = predict(target_choice,train_size,new_df,feature_choice)
 
     
+    # Model evaluation
+    #preds_train = model.predict(X_train)
+    #preds_test = model.predict(X_test)
+    #preds_test = lm.predict(X_test)
+    # if problem_type=="classification":
+    #     st.subheader('🎯 Results')
+    #     metric_name = "f1_score"
+    #     metric_train = f1_score(y_train, preds_train, average='micro')
+    #     metric_test = f1_score(y_test, preds_test, average='micro')
+    # else:
+    #     st.subheader('🎯 Results')
     mae = np.round(mt.mean_absolute_error(y_test, predictions ),2)
     mse = np.round(mt.mean_squared_error(y_test, predictions),2)
     r2 = np.round(mt.r2_score(y_test, predictions),2)
-    rmse = np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2)
     
-
+    #metric_name = "r2_score"
+    #metric_test = r2_score(y_test, preds_test)
+    #st.write(metric_name+"_train", round(metric_train, 3))
+    #st.write(metric_name+"_test", round(metric_test, 3))
     if track_with_mlflow:
+       # mlflow.sklearn.log_model(lm, "top_model_v1")
         mlflow.log_metric("mae", mae)
         mlflow.log_metric("mse", mse)
         mlflow.log_metric("r2", r2)
@@ -647,6 +685,17 @@ if app_mode == 'Prediction 🌠':
     with open('model.pkl', 'wb') as file:
         pickle.dump(lm, file)
 
+    # model_code = st.checkbox("See the model code? 👀")
+    # if model_code:
+    #     code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+    #     code1 = '''lm = LinearRegression()'''
+    #     code2 = '''lm.fit(X_train,y_train)'''
+    #     code3 = '''predictions = lm.predict(X_test)'''
+    #     st.code(code, language='python')
+    #     st.code(code1, language='python')
+    #     st.code(code2, language='python')
+    #     st.code(code3, language='python')
+    
     st.subheader('🎯 Results')
     if model_mode == 'Linear Regression':
         st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
@@ -690,9 +739,33 @@ if app_mode == 'Prediction 🌠':
         download_file()
        # return X_train, X_test, y_train, y_test, predictions,x,y, mae,mse, r2
 
+# import streamlit.components.v1 as components
+# def st_shap(plot, height=None):
+#     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
+#     components.html(shap_html, height=height)
+# if app_mode == 'shap':
+#     st.subheader('Result Interpretability - Applicant Level')
+#     shap.initjs()
+#     lm,X_train,y_test,predictions,model = predict(target_choice,train_size, new_df,feature_choice)
+#     explainer = shap.Explainer(model) 
+#     shap_values = explainer(X_train) 
+
+#     explainer1 = shap.TreeExplainer(model)
+#     shap_values1 = explainer1.shap_values(X_train)
+#     # visualize the first prediction's explanation (use matplotlib=True to avoid Javascript)
+#     st_shap(shap.force_plot(explainer.expected_value, shap_values[0,:], X_train.iloc[0,:]))
+
+#     #visualize the training set predictions
+#     st_shap(shap.force_plot(explainer.expected_value, shap_values, X_train), 400)
+#     fig = shap.plots.bar(shap_values[0]) 
+#     st.pyplot(fig) 
+
+#     st.subheader('Model Interpretability - Overall') 
+#     shap_values_ttl = explainer(X_train) 
+#     fig_ttl = shap.plots.beeswarm(shap_values_ttl)
+#     st.pyplot(fig_ttl) 
 
 #page 5
-
 if app_mode == 'Deployment 🚀':
     st.markdown("# :violet[Deployment 🚀]")
     select_ds =  "Wine Quality 🍷"
@@ -743,20 +816,42 @@ if app_mode == 'Deployment 🚀':
     st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
 
 
-if app_mode == "Spotify Wrapped":
-    if st.button("Generate Spotify Wrapped"):
-        image_wrapped = Image.open('spotifywrapped.png')
-        st.image(image_wrapped, width=800)
-        
 
+if app_mode == 'Summary Wrapped 🎁':
+    st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #6A00BA;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True)
 
+    margins_css = """
+    <style>
+        .main > div {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+    </style>
+    """
+
+    st.markdown(margins_css, unsafe_allow_html=True)
+
+    st.image("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true")
+    
+    
 if __name__=='__main__':
     main()
 
-st.markdown(" ")
-st.markdown("### 👨🏼‍💻 **App Contributors:** ")
-st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
-st.markdown(f"####  Link to Project Website [here]({'https://github.com/sayuh07/SpotifyTop50'}) 🚀 ")
+if app_mode != 'Summary Wrapped 🎁':
+    st.markdown(" ")
+    st.markdown("### 👨🏼‍💻 **App Contributors:** ")
+    st.markdown("Nina Sukonrat, Yinyi Feng, Sayuri Hadge")
+    st.markdown(f"####  Link to Project Website [here]({'https://github.com/sayuh07/SpotifyTop50'}) 🚀 ")
 
 
 def image(src_as_string, **style):
