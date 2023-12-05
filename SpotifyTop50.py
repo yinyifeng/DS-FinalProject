@@ -41,11 +41,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from sklearn.neighbors import KNeighborsRegressor
 
-from codecarbon import EmissionsTracker
+# from codecarbon import EmissionsTracker
 
-tracker = EmissionsTracker()
-tracker.start()
-tracker.stop()
+# tracker = EmissionsTracker()
+# tracker.start()
+# tracker.stop()
 
 # setting up the page streamlit
 
