@@ -486,6 +486,7 @@ if app_mode == 'Prediction 🌠':
     elif model_mode == 'Random Forest':
         st.title("Random Forest Lab 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
             code1 = '''rf = RandomForestRegressor(n_estimators=150, max_depth=15)'''
