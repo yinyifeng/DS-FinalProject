@@ -728,13 +728,12 @@ if app_mode == 'Deployment 🚀':
     number11 = st.number_input(deploy_df.columns[10],5)
     number12 = st.number_input(deploy_df.columns[11],0.0)
     number13 = st.number_input(deploy_df.columns[12],0.4)
-    number14 = st.number_input(deploy_df.columns[13],0.6)
-    number15 = st.number_input(deploy_df.columns[14],5)
+    number14 = st.number_input(deploy_df.columns[13],6)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
          deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
          deploy_df.columns[7]:[number8], deploy_df.columns[8]:[number9],deploy_df.columns[9]:[number10],deploy_df.columns[10]:[number11], 
-         deploy_df.columns[11]:[number12],deploy_df.columns[12]:[number13],deploy_df.columns[13]:[number14],deploy_df.columns[14]:[number15]})
+         deploy_df.columns[11]:[number12],deploy_df.columns[12]:[number13],deploy_df.columns[13]:[number14]})
     # Predict on a Pandas DataFrame.
     #import pandas as pd
     st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
