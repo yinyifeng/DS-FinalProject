@@ -127,7 +127,7 @@ DATA_SELECT = {
 MODELS = {
     "Linear Regression": LinearRegression,
     "Logistic Regression": LogisticRegression ,
-    "K-Nearest Neighbors (KNN)": KNeighborsRegressor,
+    "K-Nearest Neighbors (KNN)": KNeighborsClassifier,
     "Random Forest": RandomForestClassifier
 }
 target_variable = {
@@ -472,7 +472,7 @@ if app_mode == 'Prediction 🌠':
             code1 = '''scaler.fit(df)'''
             code2 = '''scaled_features = scaler.transform(df)'''
             code3 = '''X_train, X_test, y_train, y_test = train_test_split(scaled_features,df['Popularity'],test_size=0.30)'''
-            code4 = '''knn = KNeighborsRegressor(n_neighbors=30)'''
+            code4 = '''knn = KNeighborsClassifier(n_neighbors=30)'''
             code5 = '''knn.fit(X_train, y_train)'''
             code6 = '''predictions = knn.predict(X_test)'''
             st.code(code, language='python')
@@ -641,8 +641,8 @@ if app_mode == 'Prediction 🌠':
         st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
         st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
         st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
-        # acc = KNeighborsRegressor.score(y_test, predictions)
-        # st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
+        acc = accuracy_score(y_test, predictions)
+        st.write("4) Model Accuracy (in %):", np.round(acc*100,2))
     elif model_mode == "Random Forest":
         st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
         st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
