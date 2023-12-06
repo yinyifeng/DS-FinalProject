@@ -440,7 +440,7 @@ if app_mode == 'Prediction 🌠':
     list_variables = target_variable[select_ds]
 
     if model_mode == 'Linear Regression':
-        st.title("Linear Regression Lab 🧪")
+        st.title("Linear Regression 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
@@ -451,7 +451,7 @@ if app_mode == 'Prediction 🌠':
             st.code(code1, language='python')
             st.code(code2, language='python')
     elif model_mode == 'Logistic Regression':
-        st.title("Logistic Regression Lab 🧪")
+        st.title("Logistic Regression 🧪")
         # df = df.drop(['Popularity','Date','Acousticness','duration','Energy','Instrumentalness','Key','Liveness','Loudness','Mode','Speechiness','Tempo','TSignature','Positiveness'],axis=1)
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'], axis=1)
         list_variables = "Danceability"
@@ -465,7 +465,7 @@ if app_mode == 'Prediction 🌠':
             st.code(code2, language='python')
         
     elif model_mode == 'K-Nearest Neighbors (KNN)':
-        st.title("K-Nearest Neighbors (KNN) Lab 🧪")
+        st.title("K-Nearest Neighbors (KNN) 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''scaler = StandardScaler()'''
@@ -484,7 +484,7 @@ if app_mode == 'Prediction 🌠':
             st.code(code6, language='python')
 
     elif model_mode == 'Random Forest':
-        st.title("Random Forest Lab 🧪")
+        st.title("Random Forest 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
         list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
