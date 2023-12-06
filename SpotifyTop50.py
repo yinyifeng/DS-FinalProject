@@ -765,7 +765,7 @@ if app_mode == 'Summary Wrapped 🎁':
 
     st.markdown(margins_css, unsafe_allow_html=True)
 
-    st.image("https://github.com/sayuh07/SpotifyTop50/blob/main/Summary-Transparent.png?raw=true")
+    st.image("https://https://github.com/yinyifeng/DS-FinalProject/blob/main/Summary-Transparent.png?raw=true")
     
     
 if __name__=='__main__':
