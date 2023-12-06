@@ -541,6 +541,7 @@ if app_mode == 'Prediction 🌠':
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
             lm = RandomForestRegressor(n_estimators=150, max_depth=15)
+            y = (df[target_choice] * 100).astype(int)
         elif model_mode == 'Logistic Regression':
             y = (df[target_choice] * 100).astype(int)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
