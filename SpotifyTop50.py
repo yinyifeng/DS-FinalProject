@@ -486,7 +486,7 @@ if app_mode == 'Prediction 🌠':
     elif model_mode == 'Random Forest':
         st.title("Random Forest Lab 🧪")
         df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
-        # list_variables = "Danceability"
+        list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
             code1 = '''rf = RandomForestClassifier(n_estimators=150, max_depth=15)'''
@@ -542,7 +542,7 @@ if app_mode == 'Prediction 🌠':
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
             lm = RandomForestClassifier(n_estimators=150, max_depth=15)
-            # y = (df[target_choice] * 100).astype(int)
+            y = (df[target_choice] * 100).astype(int)
         elif model_mode == 'Logistic Regression':
             y = (df[target_choice] * 100).astype(int)
         X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)
