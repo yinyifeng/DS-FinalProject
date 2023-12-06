@@ -693,7 +693,7 @@ if app_mode == 'Prediction 🌠':
 #page 5
 if app_mode == 'Deployment 🚀':
     st.markdown("# :violet[Deployment 🚀]")
-    select_ds =  "Wine Quality 🍷"
+    select_ds =  "Spotify Top 50 🎼"
 #    select_dataset, df = get_dataset(select_ds)
 
     id = st.text_input('ID Model', '1f0644f9a47044c180624011a28516ca')
