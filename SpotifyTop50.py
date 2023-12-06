@@ -646,7 +646,7 @@ if app_mode == 'Prediction 🌠':
         # st.write("1) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(y_test, predictions ),2))
         # st.write("2) MSE: ", np.round(mt.mean_squared_error(y_test, predictions),2))
         # st.write("3) The R-Square score of the model is ",np.round(np.sqrt(mt.mean_squared_error(y_test, predictions)),2))
-        # acc = accuracy_score(y_test, predictions)
+        acc = accuracy_score(y_test, predictions)
         st.write("Model Accuracy (in %):", np.round(acc*100,2))
 
     @st.cache_resource
