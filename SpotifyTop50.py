@@ -696,7 +696,7 @@ if app_mode == 'Deployment 🚀':
     select_ds =  "Spotify Top 50 🎼"
 #    select_dataset, df = get_dataset(select_ds)
 
-    id = st.text_input('ID Model', '1f0644f9a47044c180624011a28516ca')
+    id = st.text_input('ID Model', '79cb9182eed64fad8b546e453e6c9786')
         # Print emissions
     #logged_model = f'runs:/{id}/top_model_v1'
     logged_model = f'./mlruns/1/{id}/artifacts/top_model_v1'
