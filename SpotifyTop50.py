@@ -23,7 +23,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
 from sklearn import metrics as mt
 import plotly.express as px
@@ -128,7 +128,7 @@ MODELS = {
     "Linear Regression": LinearRegression,
     "Logistic Regression": LogisticRegression ,
     "K-Nearest Neighbors (KNN)": KNeighborsRegressor,
-    "Random Forest": RandomForestRegressor
+    "Random Forest": RandomForestClassifier
 }
 target_variable = {
     "Spotify Top 50 🎼": "Popularity"
@@ -489,7 +489,7 @@ if app_mode == 'Prediction 🌠':
         list_variables = "Danceability"
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.30)'''
-            code1 = '''rf = RandomForestRegressor(n_estimators=150, max_depth=15)'''
+            code1 = '''rf = RandomForestClassifier(n_estimators=150, max_depth=15)'''
             code2 = '''rf.fit(X_train, y_train)'''
             code3 = '''pred = rf.predict(X_test)'''
             st.code(code, language='python')
@@ -541,7 +541,7 @@ if app_mode == 'Prediction 🌠':
             scaler = StandardScaler()
             x = scaler.fit_transform(new_df2)
         elif model_mode == 'Random Forest':
-            lm = RandomForestRegressor(n_estimators=150, max_depth=15)
+            lm = RandomForestClassifier(n_estimators=150, max_depth=15)
             y = (df[target_choice] * 100).astype(int)
         elif model_mode == 'Logistic Regression':
             y = (df[target_choice] * 100).astype(int)
