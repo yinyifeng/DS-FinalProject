@@ -441,7 +441,7 @@ if app_mode == 'Prediction 🌠':
 
     if model_mode == 'Linear Regression':
         st.title("Linear Regression 🧪")
-        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets'],axis=1)
+        df = df.drop(['Country','Track Name','Artist Name','Album Name','Date','Markets', 'Popularity'],axis=1)
         if st.button("Show ML Code 👀"):
             code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
             code1= '''lm = LinearRegression()
